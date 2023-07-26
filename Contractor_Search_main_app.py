@@ -38,8 +38,11 @@ ContractorId - This is the primary key for the table. It contains a unique ID va
 ContractorName - This stores the name of the contractor company.
 HeadquartersCity - This stores the city where the contractor's headquarters is located.
 HeadquartersState - This stores the state where the contractor's headquarters is located.
-GrowthRate - This stores a percentage value for the contractor's growth rate as flot. Growth rate is for LTM or last twelve months
-InstallationVolume - This stores the contractor's total installation volume. Also referred to as volume
+GrowthRate - This stores a percentage value for the contractor's growth rate as flot. Growth rate is for LTM or last twelve months.It basically gives contractors performance
+InstallationVolume - This stores the contractor's total installation volume. Also referred to as volume of work, kw volume of installation, total volume or just usually volume
+
+
+
 IsCommercialOnly - This indicates if the contractor focuses only on commercial projects. Values are 'Yes' or 'No'.
 IsMultiState - This indicates if the contractor operates in multiple states. Values are 'Yes' or 'No'.
 
@@ -103,7 +106,7 @@ Remember:
 - The tool fetches data only. No adding, updating, or deleting records.
 - For security, the tool doesn't reveal the entire database structure. 
 - Avoid large data requests. The tool is designed for specific queries.
-- The tool understands synonyms and similar phrases for database columns. For example, "project power" refers to the 'Kws' column.
+- The tool tries to understand common terminology, synonyms, similar phrases for database columns. For instance, "contractor performance" may refer to the 'GrowthRate' and 'InstallationVolume' columns.
 
 Ask your questions, and let the system help you with your data needs!
 
