@@ -31,28 +31,38 @@ Your mission is to respond with SQLLite queries related to columns in contractor
 """
 
 db_details = """  
-The contractor_search database contains two tables - contractorssearch and contractor_to_vendor
-The contractorssearch table stores data about individual contractors.
+The contractor_search database contains three tables - contractorssearch, contractor_to_vendor, and contractor_volume_count.
+The contractorssearch table stores data about individual contractors. It does not have state specific performance data of a contractor/company
 It has the following columns:
-ContractorId - This is the primary key for the table. It contains a unique ID value for each contractor.
-ContractorName - This stores the name of the contractor company.
-HeadquartersCity - This stores the city where the contractor's headquarters is located.
-HeadquartersState - This stores the state where the contractor's headquarters is located.
-GrowthRate - This stores a percentage value for the contractor's growth rate as flot. Growth rate is for LTM or last twelve months.It basically gives contractors performance
-InstallationVolume - This stores the contractor's total installation volume. Also referred to as volume of work, kw volume of installation, total volume or just usually volume
+ContractorId - Unique ID for each contractor (primary key).
+ContractorName - Name of the contractor company.
+HeadquartersCity - City of contractor's headquarters.Has nothing to do with statewise-split of growth , volume, project counts.  
+HeadquartersState - State of contractor's office headquarters.Has nothing to do with statewise-split of growth , volume, project counts.
+GrowthRate - Contractor's growth rate percentage (float). National level YoY % growth of a contractor.
+InstallationVolume - Contractor's total installation volume (float)..National level installation volume of a contractor in Kws.
+IsCommercialOnly - Whether contractor focuses on commercial projects ('Yes' or 'No').
+IsMultiState - Whether contractor operates in multiple states ('Yes' or 'No').
 
+The contractor_to_vendor table stores contractor-vendor relationships.
+It has the following columns:
+ContractorToVendorId - Unique ID for each relationship (primary key).
+ContractorId - ID of the associated contractor (foreign key to contractorssearch table).
+ContractorName - Name of the associated contractor.
+VendorTypeName - Categorizes vendor relationship like 'Module' or 'Inverter'.
+VendorName - Name of the vendor company.
 
+The contractor_volume_count table tracks contractor volume by state and segment over the period of Quater2- 2022 to Quarter1-23
+It has the following columns:
+AddressStateName - The state for which the quarterly volume and count breakdown based on segment applies applies (primary key).
+ContractorId - ID of the contractor (foreign key, part of primary key).
+ContractorName - Name of the contractor (part of primary key).
+SegmentName - Market segment like Residential , Commercial, Community Solar, Utility (exhaustive list, try to infer from user query as user may not use the exact terms)
+Quarterly columns for volume and installation count, Q represents 'Quarter' and number after underscore represents year. Example: Q3_22 represents, Quarter 2 (April to June of 2022):
+ Q2_22, Q3_22, Q4_22, Q1_23
+L12M_Volume - Volume for the last 12 months.In this case  Q2_22 to Q1_23
+L12M_Count - Installation count for the last 12 months.In this case  Q2_22 to Q1_23
 
-IsCommercialOnly - This indicates if the contractor focuses only on commercial projects. Values are 'Yes' or 'No'.
-IsMultiState - This indicates if the contractor operates in multiple states. Values are 'Yes' or 'No'.
-
-The contractor_to_vendor table stores relationships between contractors and vendors.
-ContractorToVendorId - This is the primary key for the table. It contains a unique ID for each contractor-vendor relationship.
-ContractorId - This is a foreign key referencing the ContractorId in the contractorssearch table. It stores which contractor the vendor is related to.
-ContractorName - This stores the name of the related contractor.
-VendorTypeName - This categorizes the type of vendor/ relationship in transaction, like 'Module' or 'Inverter'or 'Battery Partners' or 'Financing' or 'Racking & Mounting ' or 'Software'. basically if if the vendor compnay provided financing or modues etc to the said contractor.
-VendorName - This stores the name of the related vendor company.
-
+All Volumes are in Kws , if user questions is in Mws or megawatts convert the value to kws always by multiplying the Mw number by 1000 and the write the query SQLLite query. Do not explain this to the user.
 Company/Installer/contractor names in user questions are usually associated with ContractorName column, always use LIKE SQL statement since user may not use exact name.
 users may use the terms vendor, Vendors etc while refering to VendorName column or use vendor types/ vendor relationship like 'Module'  'Inverter' 'Battery Partners'  'Financing' 'Racking & Mounting ' 'Software to refer to vendors in a question.
 When a user provides a question, translate it into a corresponding SQL statement, handling a variety of query types including data retrieval, filtering, sorting, and grouping. 
