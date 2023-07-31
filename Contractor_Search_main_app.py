@@ -18,7 +18,7 @@ gc = gspread.authorize(creds)
 # API key  
 api_key = st.secrets["OPENAI_API_KEY"]["value"]
 openai.api_key = api_key
-DB_FILE = "contractor_search.db"
+DB_FILE = "contractor_search_volume.db"
 allowed_users_str = st.secrets["userlist"]["value"]
 allowed_users = ast.literal_eval(allowed_users_str)
 # Context strings
@@ -48,7 +48,7 @@ It has the following columns:
 ContractorToVendorId - Unique ID for each relationship (primary key).
 ContractorId - ID of the associated contractor (foreign key to contractorssearch table).
 ContractorName - Name of the associated contractor.
-VendorTypeName - Categorizes vendor relationship like 'Module' or 'Inverter'.
+VendorTypeName - This categorizes the type of vendor, like 'Module' or 'Inverter'or 'Battery Partners' or 'Financing' or 'Racking & Mounting ' or 'Software'.
 VendorName - Name of the vendor company.
 
 The contractor_volume_count table tracks contractor volume by state and segment over the period of Quater2- 2022 to Quarter1-23
