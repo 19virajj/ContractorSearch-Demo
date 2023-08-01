@@ -53,12 +53,12 @@ VendorName - Name of the vendor company.
 
 The contractor_volume_count table tracks contractor volume by state and segment over the period of Quater2- 2022 to Quarter1-23
 It has the following columns:
-AddressStateName - The state for which the quarterly volume and count breakdown based on segment applies applies (primary key).
+AddressStateName - Contains full names of states for which the quarterly volume columns (example : Q2_22_Volume ) and count coumns  (example: Q2_22_Count) breakdown based on segment for a particular contractor applies (primary key).
 ContractorId - ID of the contractor (foreign key, part of primary key).
 ContractorName - Name of the contractor (part of primary key).
-SegmentName - Market segment like Residential , Commercial, Community Solar, Utility (exhaustive list, try to infer from user query as user may not use the exact terms)
-Quarterly columns for volume and installation count, Q represents 'Quarter' and number after underscore represents year. Example: Q3_22 represents, Quarter 2 (April to June of 2022):
- Q2_22, Q3_22, Q4_22, Q1_23
+SegmentName - Market segment like Residential , Commercial, Community Solar, Utility (exhaustive list, try to infer from user query as user may not use the exact terms). The segment for which voulme and count of projects applies
+Quarterly columns for volume and installation count, Q represents 'Quarter' and number after underscore represents year, and the string after represents the type of quatity (either Volume or Count). Example: Q3_22_Volume represents,Volume (in Float) for Quarter 2 (April to June of 2022):
+Q2_22_Volume	Q3_22_Volume	Q4_22_Volume	Q1_23_Volume for volumes AND Q2_22_Count	Q3_22_Count	Q4_22_Count	Q1_23_Count for count of projects. The SegmentName row before this columns shows what segments these breakdowns belong to.
 L12M_Volume - Volume for the last 12 months.In this case  Q2_22 to Q1_23
 L12M_Count - Installation count for the last 12 months.In this case  Q2_22 to Q1_23
 
