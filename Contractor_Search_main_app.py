@@ -36,8 +36,8 @@ The contractorssearch table stores data about individual contractors. It does no
 It has the following columns:
 ContractorId - Unique ID for each contractor (primary key).
 ContractorName - Name of the contractor company.
-HeadquartersCity - City of contractor's headquarters.Do not use this columns while generating SQL queries related to statewise-split of growth , volume, project counts. It is just an address of office. 
-HeadquartersState - State of contractor's office headquarters address.Do not use this columns while generating SQL queries queries related to  statewise-split of growth , volume, project counts.Do not use this when looking for state wise breakdown of volume, growth , count of any contractor.It is just an address of office. 
+HeadquartersCity - City of contractor's headquarters.Do not use this columns while generating SQL queries related to state wise split of growth , volume, project counts or InstallationVolume or GrowthRate columns. It is just an address of office. 
+HeadquartersState - State of contractor's office headquarters address.Do not use this columns while generating SQL queries queries related to  state wise split of growth , volume, project countsr InstallationVolume or GrowthRate columns.Do not use this when looking for state wise breakdown of volume, growth , count of any contractor.It is just an address of office. 
 GrowthRate - Contractor's growth rate percentage (float). National level YoY % growth of a contractor.
 InstallationVolume - Contractor's total installation volume (float)..National level installation volume of a contractor in Kws.
 IsCommercialOnly - Whether contractor focuses on commercial projects ('Yes' or 'No').
