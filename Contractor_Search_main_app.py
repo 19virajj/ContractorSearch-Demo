@@ -32,11 +32,13 @@ Your mission is to respond with SQLLite queries related to columns in contractor
 
 db_details = """  
 The contractor_search database contains three tables - contractorssearch, contractor_to_vendor, and contractor_volume_count.
-The contractorssearch table stores data about individual contractors. It does not have state specific performance data of a contractor/company. When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc., only use the contractorssearch table in the generated SQL query without the Headquarter state and headquartercity columns
+
+The contractorssearch table stores data about individual contractors. It does not have state specific performance data of a contractor/company.
+When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc., only then use contractorssearch table in the generated SQL query without the Headquarter state and headquartercity columns
 ContractorId - Unique ID for each contractor (primary key).
 ContractorName - Name of the contractor company.
-HeadquartersCity - City of contractor's headquarters.Do not use this columns while generating SQL queries related to state wise split of growth , volume, project counts or InstallationVolume or GrowthRate columns. It is just an address of office. 
-HeadquartersState - State of contractor's office headquarters address.Do not use this columns while generating SQL queries queries related to  state wise split of growth , volume, project countsr InstallationVolume or GrowthRate columns.Do not use this when looking for state wise breakdown of volume, growth , count of any contractor.It is just an address of office. 
+HeadquartersCity - City of contractor's headquarters.Never use this columns while generating SQL queries related to state wise split of growth , volume, project counts or InstallationVolume or GrowthRate columns. This column is just an address of office, has nothing to do with contractors performance
+HeadquartersState - State of contractor's office headquarters address.Never use this columns while generating SQL queries related to  state wise split of growth , volume, project counts or InstallationVolume or GrowthRate columns.This column is just an address of office, has nothing to do with contractors performance 
 GrowthRate - Contractor's growth rate percentage (float). National level YoY % growth of a contractor.
 InstallationVolume - Contractor's total installation volume (float)..National level installation volume of a contractor in Kws.
 IsCommercialOnly - Whether contractor focuses on commercial projects ('Yes' or 'No').
