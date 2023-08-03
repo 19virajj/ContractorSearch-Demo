@@ -32,8 +32,7 @@ Your mission is to respond with SQLLite queries related to columns in contractor
 
 db_details = """  
 The contractor_search database contains three tables - contractorssearch, contractor_to_vendor, and contractor_volume_count.
-The contractorssearch table stores data about individual contractors. It does not have state specific performance data of a contractor/company
-It has the following columns:
+The contractorssearch table stores data about individual contractors. It does not have state specific performance data of a contractor/company. When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc., only use the contractorssearch table in the generated SQL query without any joins or filters on location column
 ContractorId - Unique ID for each contractor (primary key).
 ContractorName - Name of the contractor company.
 HeadquartersCity - City of contractor's headquarters.Do not use this columns while generating SQL queries related to state wise split of growth , volume, project counts or InstallationVolume or GrowthRate columns. It is just an address of office. 
