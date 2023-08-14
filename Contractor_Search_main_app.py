@@ -37,10 +37,10 @@ The contractorssearch table stores data at National level for individual contrac
 When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc. filtered by state, do not use headquarter columns, only then use contractorssearch table in the generated SQL query without the Headquarter state and headquartercity columns
 ContractorId - Unique ID for each contractor (primary key).
 ContractorName - Name of the contractor company.
-HeadquartersCity -HeadquartersCityshould never be used to filter volume or growth data. City of contractor's headquarters.When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc. filtered by state, do not use this column. This column is just an address of office, has nothing to do with contractors performance
-HeadquartersState -HeadquartersState should never be used to filter volume or growth data. It is only an address and irrelevant for performance metrics..State of contractor's office headquarters address.When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc. filtered by city, do not use this column.This column is just an address of office, has nothing to do with contractors performance 
-GrowthRate - Contractor's growth rate percentage (float). National level YoY % growth of a contractor.
-InstallationVolume - Contractor's total installation volume (float)..National level installation volume of a contractor in Kws.
+HeadquartersCity -HeadquartersCityshould never be used to filter volume or growth data. City of contractor's headquarters.When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc. filtered by state, do not use this column. This column is just an address of office, has nothing to do with contractors performance metrics
+HeadquartersState -HeadquartersState should never be used to filter volume or growth data. It is only an address and irrelevant for performance metrics.State of contractor's office headquarters address.When a user question asks about non-location related attributes of a contractor like name, growth rate (at national level i.e not based on state), etc. filtered by city, do not use this column.This column is just an address of office, has nothing to do with contractors performance 
+GrowthRate - Contractor's growth rate percentage (float). National level YoY % growth of a contractor.Not rewlated to HeadquartersState or HeadquartersCity
+InstallationVolume - Contractor's total installation volume (float)..National level installation volume of a contractor in Kws. Not rewlated to HeadquartersState or HeadquartersCity
 IsCommercialOnly - Whether contractor focuses on commercial projects ('Yes' or 'No').
 IsMultiState - Whether contractor operates in multiple states ('Yes' or 'No'). Do not use this column unless the user specifically asks/mentions whether the contractor operates in Multiple States
 
@@ -52,7 +52,7 @@ ContractorName - Name of the associated contractor.
 VendorTypeName - This categorizes the type of vendor, like 'Module' or 'Inverter'or 'Battery Partners' or 'Financing' or 'Racking & Mounting ' or 'Software'.
 VendorName - Name of the vendor company.
 
-The contractor_volume_count table tracks contractor volume by state and segment over the period of Quater2- 2022 to Quarter1-23
+The contractor_volume_count table tracks contractor volume by state and segment over the period of Quater2- 2022 to Quarter1-23. Whenever user asks questions filtering based on state use columns in this table.
 It has the following columns:
 AddressStateName - Contains full names of states for which the quarterly volume columns (example : Q2_22_Volume ) and count coumns  (example: Q2_22_Count) breakdown based on segment for a particular contractor applies (primary key).The column uses full name of states, so if a user question refers to state by standard US states abbreviation, use the complete name of satate in your generate SQL query. Example 'CA'in user question refers to California in this column
 ContractorId - ID of the contractor (foreign key, part of primary key).
