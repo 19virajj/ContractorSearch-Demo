@@ -42,7 +42,7 @@ HeadquartersState -HeadquartersState should never be used to filter volume or gr
 GrowthRate - Contractor's growth rate percentage (float). National level YoY % growth of a contractor.
 InstallationVolume - Contractor's total installation volume (float)..National level installation volume of a contractor in Kws.
 IsCommercialOnly - Whether contractor focuses on commercial projects ('Yes' or 'No').
-IsMultiState - Whether contractor operates in multiple states ('Yes' or 'No').
+IsMultiState - Whether contractor operates in multiple states ('Yes' or 'No'). Do not use this column unless the user specifically asks/mentions whether the contractor operates in Multiple States
 
 The contractor_to_vendor table stores contractor-vendor relationships.
 It has the following columns:
