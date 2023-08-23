@@ -118,7 +118,7 @@ Contractor to Vendor Table
 
 Remember:
 
-**It can can carry a conversation upto about 4-5 follow-up question**
+**It can can carry a conversation upto about 4-5 follow-up questions**
 - The App is in its very early testing phase
 - The tool fetches data only. No adding, updating, or deleting records.
 - For security, the tool doesn't reveal the entire database structure. 
