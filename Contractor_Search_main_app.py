@@ -202,7 +202,7 @@ st.session_state.messages.append({"role": "system", "content": context})
 
 # set the model (#gpt-3.5-turbo original)
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-4–32k" 
+    st.session_state["openai_model"] = "gpt-4" 
 
 if username:
   if username not in allowed_users:
